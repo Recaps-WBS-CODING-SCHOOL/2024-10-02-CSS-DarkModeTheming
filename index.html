@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+    <link rel="stylesheet" href="index.css">
+    <title>Color Playground</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <h1>Colors!</h1>
+
+      <!-- <label class="mode-switch">
+        <span class="mode--light">☀️</span>
+        <span class="mode--dark">🌒</span>
+        <input type="checkbox" class="mode-switch__checkbox">
+      </label> -->
+      <div>
+        <!-- Dark/Light/System Select -->
+        <select class="mode-select" aria-label="Select light, dark or system color scheme" id="mode-select">
+          <option value="light" class="mode--light" aria-label="Light mode">☀️</option>
+          <option value="dark" class="mode--dark" aria-label="Dark mode">🌒</option>
+          <option value="system" class="mode--system" selected aria-label="System default">💻
+          </option>
+        </select>
+        <!-- Proper Theme Select -->
+        <select class="theme-select" aria-label="Select a theme">
+          <option value="" selected disabled hidden>
+            Theme
+          </option>
+          <option value="forest">
+            Forest
+          </option>
+          <option value="drakula">
+            Drakula
+          </option>
+          <option value="cyberpunk">
+            Cyberpunk
+          </option>
+        </select>
+      </div>
+    </header>
+
+    <!-- <h2>This is some text</h2> -->
+    <main>
+      <article class="friend-request">
+        <header>
+          <h2>Friend Requests</h2>
+          <a href="#">View all</a>
+        </header>
+
+        <div class="request">
+          <div>
+            <img src="https://avatar.iran.liara.run/public/7" alt="Jerome Williams" height="80" width="80">
+            <div>
+              <h3>Jerome Williams</h3>
+              <p>7 mutual friends</p>
+            </div>
+          </div>
+          <button>Confirm</button>
+        </div>
+        <div class="request">
+          <div>
+            <img src="https://avatar.iran.liara.run/public/81" alt="Sally Steele" height="80" width="80">
+            <div>
+              <h3>Sally Steele</h3>
+              <p>3 mutual friends</p>
+            </div>
+          </div>
+          <button>Confirm</button>
+        </div>
+        <div class="request">
+          <div>
+            <img src="https://avatar.iran.liara.run/public/94" alt="Rachel Ball" height="80" width="80">
+            <div>
+              <h3>Rachel Ball</h3>
+              <p>8 mutual friends</p>
+            </div>
+          </div>
+          <button>Confirm</button>
+        </div>
+
+      </article>
+    </main>
+
+  </body>
+
+</html>

@@ -1,0 +1,126 @@
+/* Scoped to .friend-request and it's children only */
+/* Makes it easier to avoid naming and specificity conflicts in large code bases*/
+
+@scope (.friend-request) {
+  /* :scope === .friend-request */
+  :scope {
+    /* Component variables */
+    --main-background-fallback: var(--primary-500);
+    --main-background: light-dark(var(--primary-400), var(--primary-700));
+    --main-foreground-fallback: var(--secondary-950);
+    --main-foreground: light-dark(var(--secondary-950), var(--secondary-50));
+    --text-anchor: var(--secondary-100);
+    --btn-bg-fb: var(--primary-100);
+    --btn-bg: light-dark(var(--primary-100), var(--primary-950));
+    --btn-fg: light-dark(var(--secondary-950), var(--secondary-100));
+    --shadow: var(--primary-800);
+    --gradients: light-dark(var(--primary-200), color-mix(in hsl, var(--primary-700), var(--secondary-700))),
+      light-dark(var(--secondary-600), var(--secondary-300));
+
+    max-width: 35rem;
+    margin-inline: auto;
+    /* fallback - if the browser doesn't know what to do with the second line, it still applies the first one (kinda 'progressive enhancement') */
+    background-color: teal;
+    background-color: var(--main-background);
+    color: var(--main-foreground-fallback);
+    color: var(--main-foreground);
+    padding: 2.5rem 2rem 2.5rem;
+    border-radius: 0.25rem;
+    position: relative;
+    overflow: clip;
+    box-shadow: 3px 3px 4px var(--shadow);
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  a {
+    text-decoration: none;
+    z-index: 2;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .request {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    z-index: 2;
+
+    &:not(:last-of-type) {
+      margin-bottom: 1.5rem;
+    }
+
+    & > * {
+      gap: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    h3,
+    p {
+      margin: 0;
+      z-index: 2;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+    }
+
+    img {
+      width: 5rem;
+      z-index: 2;
+    }
+
+    button {
+      background-color: var(--btn-bg-fb);
+      background-color: var(--btn-bg);
+      color: inherit;
+      color: var(--btn-fg);
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.25rem;
+      box-shadow: 0px 3px 4px var(--shadow);
+      transition: box-shadow 75ms linear, translate 75ms linear;
+      z-index: 2;
+
+      &:active {
+        box-shadow: 0px 1px 1px var(--shadow);
+        translate: 0 1px;
+      }
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: radial-gradient(at 50% 30% in oklch, var(--gradients));
+    width: 75%;
+    height: 70%;
+    top: -15%;
+    right: -30%;
+    z-index: 1;
+    rotate: 20deg;
+    border-radius: 20% 50%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-image: radial-gradient(in oklch, var(--gradients));
+    height: 90%;
+    aspect-ratio: 1;
+    bottom: -82.5%;
+    left: -17.5%;
+    z-index: 1;
+    border-radius: 100%;
+  }
+}

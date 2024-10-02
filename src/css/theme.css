@@ -1,0 +1,157 @@
+/* Enter code */
+:root {
+  color-scheme: light dark;
+
+  /* background-color: light-dark(antiquewhite, rebeccapurple);
+  color: light-dark(darkslategray, bisque); */
+
+  /* @media (prefers-color-scheme: dark) {
+    background-color: rebeccapurple;
+  } */
+
+  /* background-color: color-mix(in oklch, blue, yellow); */
+
+  /* background-image: linear-gradient(to right in oklch, blue, yellow); */
+
+  /* Change this custom property to change color themes document-wide */
+  --base-color: hsl(180, 100%, 33%);
+
+  /* Note: these lightness calculations are only magic numberin so far */
+  /* Automatically derived colors cannot replace a designer */
+  --primary-25: hsl(from var(--base-color) h s calc(l * 3.9));
+  --primary-50: hsl(from var(--base-color) h s calc(l * 3.5));
+  --primary-100: hsl(from var(--base-color) h s calc(l * 2.75));
+  --primary-200: hsl(from var(--base-color) h s calc(l * 2));
+  --primary-300: hsl(from var(--base-color) h s calc(l * 1.66));
+  --primary-400: hsl(from var(--base-color) h s calc(l * 1.25));
+  --primary-500: var(--base-color);
+  --primary-600: hsl(from var(--base-color) h s calc(l * 0.85));
+  --primary-700: hsl(from var(--base-color) h s calc(l * 0.7));
+  --primary-800: hsl(from var(--base-color) h s calc(l * 0.55));
+  --primary-900: hsl(from var(--base-color) h s calc(l * 0.4));
+  --primary-950: hsl(from var(--base-color) h s calc(l * 0.25));
+
+  --base-secondary: hsl(from var(--base-color) calc(h + 120) s l);
+
+  --secondary-25: hsl(from var(--base-secondary) h s calc(l * 3.9));
+  --secondary-50: hsl(from var(--base-secondary) h s calc(l * 3.5));
+  --secondary-100: hsl(from var(--base-secondary) h s calc(l * 2.75));
+  --secondary-200: hsl(from var(--base-secondary) h s calc(l * 2));
+  --secondary-300: hsl(from var(--base-secondary) h s calc(l * 1.66));
+  --secondary-400: hsl(from var(--base-secondary) h s calc(l * 1.25));
+  --secondary-500: var(--base-secondary);
+  --secondary-600: hsl(from var(--base-secondary) h s calc(l * 0.85));
+  --secondary-700: hsl(from var(--base-secondary) h s calc(l * 0.7));
+  --secondary-800: hsl(from var(--base-secondary) h s calc(l * 0.55));
+  --secondary-900: hsl(from var(--base-secondary) h s calc(l * 0.4));
+  --secondary-950: hsl(from var(--base-secondary) h s calc(l * 0.25));
+
+  background-color: light-dark(var(--primary-100), var(--primary-900));
+  color: light-dark(var(--secondary-950), var(--secondary-100));
+}
+
+:root:has(input[type='checkbox']:checked) {
+  color-scheme: dark;
+}
+
+.mode-switch {
+  cursor: pointer;
+  text-align: center;
+  & > input {
+    appearance: none;
+  }
+  &::selection,
+  & ::selection {
+    background-color: transparent;
+  }
+}
+
+.mode--light:has(~ input[type='checkbox']:not(:checked)) {
+  display: none;
+}
+.mode--dark:has(~ input[type='checkbox']:checked) {
+  display: none;
+}
+
+.mode-select {
+  appearance: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0.5px solid var(--primary-800);
+  border-radius: 1rem;
+  option[value='light'] {
+    background-color: var(--primary-100);
+  }
+  option[value='dark'] {
+    background-color: var(--primary-800);
+  }
+  option[value='system'] {
+    background-color: var(--primary-100);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--primary-800);
+    }
+  }
+}
+
+:root:has(.mode--light:checked) {
+  color-scheme: light;
+}
+:root:has(.mode--dark:checked) {
+  color-scheme: dark;
+}
+:root:has(.mode--system:checked) {
+  color-scheme: light dark;
+}
+
+.theme-select {
+  display: flex;
+  align-items: center;
+  appearance: none;
+  border: none;
+  width: min-content;
+  padding: 0.5rem;
+  background-color: var(--primary-500);
+  color: var(--primary-50);
+  border-radius: 0.5rem;
+
+  option[value='forest'] {
+    background-color: hsl(0, 12%, 8%);
+  }
+
+  option[value='drakula'] {
+    background-color: hsl(231, 15%, 18%);
+  }
+
+  option[value='cyberpunk'] {
+    background-color: hsl(56, 100%, 64%);
+  }
+}
+
+:root:has(option[value='forest']:checked) {
+  --base-color: hsl(0, 12%, 33%);
+}
+:root:has(option[value='drakula']:checked) {
+  --base-color: hsl(231, 15%, 18%);
+  font-family: fantasy;
+}
+:root:has(option[value='cyberpunk']:checked) {
+  --base-color: hsl(56, 100%, 64%);
+  /* --base-secondary: hsl(64, 90%, 64%);
+  
+  --secondary-25: hsl(from var(--base-secondary) h s calc(l * 3.9));
+  --secondary-50: hsl(from var(--base-secondary) h s calc(l * 3.5));
+  --secondary-100: hsl(from var(--base-secondary) h s calc(l * 2.75));
+  --secondary-200: hsl(from var(--base-secondary) h s calc(l * 2));
+  --secondary-300: hsl(from var(--base-secondary) h s calc(l * 1.66));
+  --secondary-400: hsl(from var(--base-secondary) h s calc(l * 1.25));
+  --secondary-500: var(--base-secondary);
+  --secondary-600: hsl(from var(--base-secondary) h s calc(l * 0.85));
+  --secondary-700: hsl(from var(--base-secondary) h s calc(l * 0.7));
+  --secondary-800: hsl(from var(--base-secondary) h s calc(l * 0.55));
+  --secondary-900: hsl(from var(--base-secondary) h s calc(l * 0.4));
+  --secondary-950: hsl(from var(--base-secondary) h s calc(l * 0.25)); */
+  font-family: 'Courier New', Courier, monospace;
+}
