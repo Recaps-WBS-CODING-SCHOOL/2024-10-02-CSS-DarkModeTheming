@@ -50,8 +50,11 @@
   color: light-dark(var(--secondary-950), var(--secondary-100));
 }
 
-:root:has(input[type='checkbox']:checked) {
+:root:has(.mode-switch__checkbox:checked) {
   color-scheme: dark;
+}
+:root:has(.mode-switch__checkbox:not(:checked)) {
+  color-scheme: light;
 }
 
 .mode-switch {
