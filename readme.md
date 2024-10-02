@@ -1,6 +1,3 @@
-> [!NOTE]  
-> This repo is part of a recap held for WBS CODING SCHOOL Web & App Development Bootcamp.
-
 # CSS Only Dark Mode and Color Theming
 
 In this repo you can find examples for
